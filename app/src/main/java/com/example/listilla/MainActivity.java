@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         nomUser.add("Kira");
         nomUser.add("Sirena");
         nomUser.add("Huevo");
+        nomUser.add("Eric");
+        nomUser.add("Nadia");
 
 
 
