@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
             nom = _nom;
         }
     }
+
+    ArrayList<String> nomUser;
+    int randomNum = (int) Math.floor(Math.random()*(100-1+1)+1);
     // Model = Taula de records: utilitzem ArrayList
     ArrayList<Record> records;
 
@@ -32,12 +35,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        nomUser = new ArrayList<String>();
+        //Afegim noms
+        nomUser.add("Manuel");
+        nomUser.add("Manolo");
+        nomUser.add("Paco");
+        nomUser.add("Pepe");
+        nomUser.add("David");
+        nomUser.add("Genji");
+        nomUser.add("Edgar");
+        nomUser.add("Arbol milenario");
+        nomUser.add("Nacho");
+        nomUser.add("Maria");
+        nomUser.add("Pepito");
+        nomUser.add("Kira");
+        nomUser.add("Sirena");
+        nomUser.add("Huevo");
+
+
+
         // Inicialitzem model
         records = new ArrayList<Record>();
         // Afegim alguns exemples
         records.add( new Record(33,"Manolo") );
         records.add( new Record(12,"Pepe") );
         records.add( new Record(42,"Laura") );
+
+
+
 
         // Inicialitzem l'ArrayAdapter amb el layout pertinent
         adapter = new ArrayAdapter<Record>( this, R.layout.list_item, records )
@@ -67,8 +92,11 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i=0;i<500;i++) {
-                    records.add(new Record(100, "Anonymous"));
+                for (int i=0;i<30;i++) {
+                    randomNum = (int) Math.floor(Math.random()*(100-1+1)+1);
+                    int nomRandom = (int) Math.floor(Math.random()*(nomUser.size()-1+1));
+                    records.add(new Record(randomNum, nomUser.get(nomRandom)));
+
                 }
                 // notificar l'adapter dels canvis al model
                 adapter.notifyDataSetChanged();
